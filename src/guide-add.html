@@ -1,0 +1,51 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="guide-add">
+  <style>
+    .card {
+      background: #fff;
+      box-shadow: 1px 3px 2px 1px rgba(0, 0, 0, 0.2);
+    	border-radius: 3px;
+      margin: 24px;
+      padding: 16px;
+    }
+
+    .container {
+      margin: 40px;
+    }
+
+    paper-button.add-button {
+      margin-top: 10px;
+      background-color: var(--paper-green-500);
+      color: white;
+    }
+  </style>
+  <template>
+    <div class="container">
+      <div class="card">
+        <h3>Add a new place</h3>
+        <paper-input label="Place name" class="place-name" value="{{placeName}}"></paper-input>
+        <paper-input label="Place Location Latitude" class="place-l-lat" value="{{lat}}"></paper-input>
+        <paper-input label="Place Location Longitude" class="place-l-lon" value="{{long}}"></paper-input>
+        <paper-button raised class="add-button" on-tap="handleClick">Add</paper-button>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'guide-add',
+    handleClick (e) {
+      const { placeName: name, lat, long } = this;
+      const newPlace = {
+        name,
+        lat,
+        long
+      };
+      // TODO: Add data to firebase
+    }
+  })
+</script>

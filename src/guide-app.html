@@ -10,6 +10,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="guide-add.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="guide-app">
@@ -66,6 +67,7 @@
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="add" href="/add">Add new place</a>
           <a name="view1" href="/view1">View One</a>
           <a name="view2" href="/view2">View Two</a>
           <a name="view3" href="/view3">View Three</a>
@@ -83,6 +85,7 @@
         </app-header>
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+          <guide-add name="add"></guide-add>
           <my-view1 name="view1"></my-view1>
           <my-view2 name="view2"></my-view2>
           <my-view3 name="view3"></my-view3>
@@ -115,13 +118,13 @@
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'add';
       },
 
       _pageChanged: function(page) {
         // load page import on demand.
         this.importHref(
-          this.resolveUrl('my-' + page + '.html'), null, null, true);
+          this.resolveUrl(`my-${page}.html`), null, null, true);
       }
 
     });
