@@ -1,4 +1,11 @@
-# Polymer App Toolbox - Drawer Template
+# guide
+things to do:
+[] Show places near me
+[] Show a map of places near me
+[] Make that map available without a network connection (possibly by pre-caching?)
+[] Add new places 
+
+### Polymer App Toolbox - Drawer Template
 
 This template is a starting point for building apps using a drawer-based
 layout.  The layout is provided by `app-layout` elements.
@@ -71,5 +78,3 @@ of the application.  Each new demand-loaded fragment should be added to the
 list of `fragments` in the included `polymer.json` file.  This will ensure
 those components and their dependencies are added to the list of pre-cached
 components (and will have bundles created in the fallback `bundled` build).
-
-
